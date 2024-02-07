@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonUI : MonoBehaviour
 {
-
-    [SerializeField] private string newGame = "Game";
+    [SerializeField] private string Menu = "MainMenu";
     [SerializeField] private string Options = "Options";
+    [SerializeField] private string newGame = "Game";
 
 
 
@@ -22,9 +22,35 @@ public class ButtonUI : MonoBehaviour
         SceneManager.LoadScene(Options);
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void BacktoHome()
     {
-        Screen.fullScreen = isFullscreen;
-       
+        SceneManager.LoadScene(Menu);  
     }
+
+    public void SetFullScreen(bool fullScreenValue)
+    {
+        Screen.fullScreen = fullScreenValue;
+        
+        if (!fullScreenValue)
+        {
+            Resolution resolution = Screen.currentResolution;
+            resolution.width = 1920;
+            Screen.SetResolution(resolution.width, resolution.height, fullScreenValue);
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+
+
+        }
+
+    }
+
+
 }
+
+ 
+
+
+
+
+
+
+
