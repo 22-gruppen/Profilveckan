@@ -12,7 +12,7 @@ public class trainMovement : MonoBehaviour
     Vector3 currentVelocity;
     public bool moving = true;
 
-    float velocity = 100f;
+    float velocity = 50f;
 
     Vector3 nextpos;
 
@@ -33,10 +33,10 @@ public class trainMovement : MonoBehaviour
         
         if (moving == false)
         {
-            dörrar[0].transform.position = Vector3.MoveTowards(dörrar[0].transform.position, new Vector3(2.1f, dörrar[0].transform.position.y, dörrar[0].transform.position.z), 0.5f * Time.deltaTime);
-            dörrar[1].transform.position = Vector3.MoveTowards(dörrar[1].transform.position, new Vector3(1.15f, dörrar[1].transform.position.y, dörrar[1].transform.position.z), 0.5f * Time.deltaTime);
-            dörrar[2].transform.position = Vector3.MoveTowards(dörrar[2].transform.position, new Vector3(-1.7025f, dörrar[2].transform.position.y, dörrar[2].transform.position.z), 0.5f * Time.deltaTime);
-            dörrar[3].transform.position = Vector3.MoveTowards(dörrar[3].transform.position, new Vector3(-2.69f, dörrar[3].transform.position.y, dörrar[3].transform.position.z), 0.5f * Time.deltaTime);
+            dörrar[0].transform.position = Vector3.MoveTowards(dörrar[0].transform.position, new Vector3(2.1f, dörrar[0].transform.position.y, dörrar[0].transform.position.z), 0.1f * Time.deltaTime);
+            dörrar[1].transform.position = Vector3.MoveTowards(dörrar[1].transform.position, new Vector3(1.15f, dörrar[1].transform.position.y, dörrar[1].transform.position.z), 0.1f * Time.deltaTime);
+            dörrar[2].transform.position = Vector3.MoveTowards(dörrar[2].transform.position, new Vector3(-1.7025f, dörrar[2].transform.position.y, dörrar[2].transform.position.z), 0.1f * Time.deltaTime);
+            dörrar[3].transform.position = Vector3.MoveTowards(dörrar[3].transform.position, new Vector3(-2.69f, dörrar[3].transform.position.y, dörrar[3].transform.position.z), 0.1f * Time.deltaTime);
         }
     }
 }
