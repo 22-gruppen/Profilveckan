@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trainMovement : MonoBehaviour
+public class Train : MonoBehaviour
 {
     public List<GameObject> dörrar;
 
@@ -12,7 +12,7 @@ public class trainMovement : MonoBehaviour
     Vector3 currentVelocity;
     public bool moving = true;
 
-    float velocity = 50f;
+    float velocity = 25f;
 
     Vector3 nextpos;
 
@@ -30,6 +30,9 @@ public class trainMovement : MonoBehaviour
         {
             moving = false;
         }
+
+        else
+            moving = true;
         
         if (moving == false)
         {
