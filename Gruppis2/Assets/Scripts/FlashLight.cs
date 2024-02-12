@@ -14,7 +14,7 @@ public class FlashLight : MonoBehaviour
     {
         light = GetComponent<Light>();
         goFollow = Camera.main.gameObject;
-        v3Offset = transform.position - goFollow.transform.position;
+        
     }
 
     // Update is called once per frame
@@ -24,8 +24,7 @@ public class FlashLight : MonoBehaviour
         {
             light.enabled = !light.enabled; 
         }
-        transform.position = goFollow.transform.position + v3Offset;
-        transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+      
     }
 
 }
