@@ -9,7 +9,7 @@ public class Train : MonoBehaviour
     // Variables
     public float smoothTime = 0.5f;
     public Vector3 target = new Vector3(0f, -0.1f, -6f);
-    Vector3 currentVelocity;
+    public Vector3 currentVelocity;
     public bool moving = true;
 
     float velocity = 25f;

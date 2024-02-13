@@ -136,27 +136,28 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
-    
-         void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Train")
         {
-            if (other.gameObject.tag == "Train")
-            {
-                // Assuming the player is the object with this script
-               Debug.Log("Player entered the Train trigger zone");
-                transform.parent = other.transform;
-           }
-        } 
+            // Assuming the player is the object with this script
+            other.transform.parent = transform;
 
-        void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.tag == "Train")
-            {
-                Debug.Log("Player exited the Train trigger zone");
-                // Assuming the player is the object with this script
-                transform.parent = null;
-            }
+            // Transfer velocity to the player
+            var trainVelocity = other.GetComponent<Rigidbody>().velocity;
+            GetComponent<Rigidbody>().velocity = trainVelocity;
         }
-    
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Train")
+        {
+            // Assuming the player is the object with this script
+            other.transform.parent = null;
+        }
+    }
+
 
 
 
