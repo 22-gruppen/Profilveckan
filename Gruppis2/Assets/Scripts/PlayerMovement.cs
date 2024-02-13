@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float staminaRegenRate = 5f; // Stamina regeneration rate per second
     public float staminaDepletionRate = 30f;
     public Slider barImage;
+    public GameObject other; 
+    
    
 
     private Vector3 moveDirection = Vector3.zero;
@@ -38,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
         // Start the coroutine for delayed stamina regeneration
         StartCoroutine(DelayedStaminaRegen());
     }
+
+    
+
 
     void Update()
     {
@@ -113,6 +118,11 @@ public class PlayerMovement : MonoBehaviour
         {
             barImage.value = currentStamina / maxStamina;
         }
+
+        
+
+
+
     }
 
     // Coroutine for delayed stamina regeneration
@@ -126,4 +136,28 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
+    
+         void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Train")
+            {
+                // Assuming the player is the object with this script
+               Debug.Log("Player entered the Train trigger zone");
+                transform.parent = other.transform;
+           }
+        } 
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag == "Train")
+            {
+                Debug.Log("Player exited the Train trigger zone");
+                // Assuming the player is the object with this script
+                transform.parent = null;
+            }
+        }
+    
+
+
+
 }
