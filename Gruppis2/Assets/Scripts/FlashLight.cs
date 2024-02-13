@@ -6,9 +6,9 @@ public class FlashLight : MonoBehaviour
 {
 
     Light light;
-    private Vector3 v3Offset;
+   
     private GameObject goFollow;
-    private float speed = 0.1f;
+    
     // Start is called before the first frame update
     void Start()
     {
