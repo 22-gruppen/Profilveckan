@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
-
-    Light light;
+    new Light light;
     private GameObject goFollow;
     
      void Start()
