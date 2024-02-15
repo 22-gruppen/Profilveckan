@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
-
-    Light light;
-   
+    new Light light;
     private GameObject goFollow;
     
-    // Start is called before the first frame update
-    void Start()
+     void Start()
     {
         light = GetComponent<Light>();
         goFollow = Camera.main.gameObject;
