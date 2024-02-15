@@ -8,13 +8,23 @@ public class ButtonUI : MonoBehaviour
     [SerializeField] private string Menu = "MainMenu";
     [SerializeField] private string Options = "Options";
     [SerializeField] private string newGame = "Station1";
+<<<<<<< HEAD
+=======
+    [SerializeField] private string Credits = "Credits";
+>>>>>>> e8628ca8305de9d30ce0c9c2b3b69a2cf92d45a0
 
 
 
 
     public void NewGameButton()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene("Station1");
+=======
+        SceneManager.LoadScene(newGame);
+        PauseMenu.gameIsPaused = false;
+        
+>>>>>>> e8628ca8305de9d30ce0c9c2b3b69a2cf92d45a0
     }
 
     public void OptionsButton()
@@ -41,6 +51,10 @@ public class ButtonUI : MonoBehaviour
 
         }
 
+    }
+    public void CreditsScreen()
+    {
+        SceneManager.LoadScene(Credits);
     }
 
 
