@@ -7,14 +7,14 @@ public class ButtonUI : MonoBehaviour
 {
     [SerializeField] private string Menu = "MainMenu";
     [SerializeField] private string Options = "Options";
-    [SerializeField] private string newGame = "Game";
+    [SerializeField] private string newGame = "Station1";
 
 
 
 
     public void NewGameButton()
     {
-        SceneManager.LoadScene(newGame);
+        SceneManager.LoadScene("Station1");
     }
 
     public void OptionsButton()

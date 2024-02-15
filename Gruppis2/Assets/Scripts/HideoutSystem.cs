@@ -6,7 +6,8 @@ public class HideoutSystem : MonoBehaviour
 {
     public GameObject hideText, stopHideText;
     public GameObject normalPlayer, hidingPlayer;
- 
+    
+   
     bool interactable, hiding;
     public float loseDistance;
 
@@ -39,8 +40,7 @@ public class HideoutSystem : MonoBehaviour
             {
                 hideText.SetActive(false);
                 hidingPlayer.SetActive(true);
-                
-                
+               
                 stopHideText.SetActive(true);
                 hiding = true;
                 normalPlayer.SetActive(false);
