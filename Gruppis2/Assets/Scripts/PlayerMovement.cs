@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
                 walk.Play();
             }
         }
-        else
+        else if (moving == false && walk.isPlaying == true)
             walk.Stop();
     }
 
