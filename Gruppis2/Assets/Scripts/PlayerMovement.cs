@@ -20,9 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public float staminaRegenRate = 5f; // Stamina regeneration rate per second
     public float staminaDepletionRate = 30f;
     public Slider barImage;
-    public GameObject other; 
-    
-   
+    public GameObject other;
+
+
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(DelayedStaminaRegen());
     }
 
-    
+
 
 
     void Update()
@@ -132,13 +132,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (moving == true)
         {
-            walk.Play();
+            if (walk.isPlaying == false)
+            {
+                walk.Play();
+            }
         }
         else
             walk.Stop();
-
-
     }
+
+
+
+
+
 
     // Coroutine for delayed stamina regeneration
     IEnumerator DelayedStaminaRegen()
@@ -172,8 +178,9 @@ public class PlayerMovement : MonoBehaviour
             other.transform.parent = null;
         }
     }
-
-
-
-
 }
+
+
+
+
+
