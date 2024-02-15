@@ -7,7 +7,8 @@ public class ButtonUI : MonoBehaviour
 {
     [SerializeField] private string Menu = "MainMenu";
     [SerializeField] private string Options = "Options";
-    [SerializeField] private string newGame = "Game";
+    [SerializeField] private string newGame = "Station1";
+    [SerializeField] private string Credits = "Credits";
 
 
 
@@ -15,6 +16,8 @@ public class ButtonUI : MonoBehaviour
     public void NewGameButton()
     {
         SceneManager.LoadScene(newGame);
+        PauseMenu.gameIsPaused = false;
+        
     }
 
     public void OptionsButton()
@@ -41,6 +44,10 @@ public class ButtonUI : MonoBehaviour
 
         }
 
+    }
+    public void CreditsScreen()
+    {
+        SceneManager.LoadScene(Credits);
     }
 
 
