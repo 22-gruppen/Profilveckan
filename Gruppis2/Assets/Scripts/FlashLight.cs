@@ -6,6 +6,8 @@ public class FlashLight : MonoBehaviour
 {
     new Light light;
     private GameObject goFollow;
+
+    public AudioSource ljud;
     
      void Start()
     {
@@ -19,7 +21,8 @@ public class FlashLight : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
-            light.enabled = !light.enabled; 
+            ljud.Play();
+            light.enabled = !light.enabled;
         }
       
     }
