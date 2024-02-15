@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canMove = true;
 
+    private bool moving = false;
+
+    public AudioSource walk;
+    public AudioSource running;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -119,8 +124,18 @@ public class PlayerMovement : MonoBehaviour
             barImage.value = currentStamina / maxStamina;
         }
 
-        
+        if (curSpeedX > 0 && curSpeedY <= 0)
+            moving = true;
 
+        else if (curSpeedX <= 0 && curSpeedY <= 0)
+            moving = false;
+
+        if (moving == true)
+        {
+            walk.Play();
+        }
+        else
+            walk.Stop();
 
 
     }
