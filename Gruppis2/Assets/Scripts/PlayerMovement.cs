@@ -20,8 +20,6 @@ public class PlayerMovement : MonoBehaviour
     public float staminaRegenRate = 5f; // Stamina regeneration rate per second
     public float staminaDepletionRate = 30f;
     public Slider barImage;
-    public GameObject other;
-
 
 
     private Vector3 moveDirection = Vector3.zero;
