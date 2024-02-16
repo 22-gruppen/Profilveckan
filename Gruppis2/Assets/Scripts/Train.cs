@@ -13,6 +13,7 @@ public class Train : MonoBehaviour
     public Vector3 target = new Vector3(0f, -0.1f, -6f);
     public Vector3 currentVelocity;
     public bool moving = true;
+    public Collider collider;
 
     float velocity = 15f;
 
@@ -49,5 +50,6 @@ public class Train : MonoBehaviour
             dörrar[2].transform.position = Vector3.MoveTowards(dörrar[2].transform.position, new Vector3(-1.7025f, dörrar[2].transform.position.y, dörrar[2].transform.position.z), 0.1f * Time.deltaTime);
             dörrar[3].transform.position = Vector3.MoveTowards(dörrar[3].transform.position, new Vector3(-2.69f, dörrar[3].transform.position.y, dörrar[3].transform.position.z), 0.1f * Time.deltaTime);
         }
+ 
     }
 }
