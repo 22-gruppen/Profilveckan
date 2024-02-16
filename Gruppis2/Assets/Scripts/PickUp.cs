@@ -1,30 +1,22 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TriggerScript : MonoBehaviour
+public class PickupScript : MonoBehaviour
 {
+    public GameObject pickText;
+    public int scoreValue = 10;
+
     private bool isMouseOver = false;
-    private bool canPickUp = false;
-    public GameObject pickText; 
-   
 
-    private int objectCount = 0; // Variable to keep track of the object count
-
-    private void OnGUI()
+    private void Start()
     {
-        if (isMouseOver)
-        {
-            pickText.SetActive(true); 
-        }
+        pickText.SetActive(false);
     }
 
     private void Update()
     {
-        if (isMouseOver && canPickUp && Input.GetKeyDown(KeyCode.E))
+        if (isMouseOver && Input.GetKeyDown(KeyCode.E))
         {
-            // If 'E' key is pressed, the object is picked up
-            gameObject.SetActive(false); // Hide the object
-            UpdateObjectCount(); // Update object count
+            PickUp();
         }
     }
 
@@ -32,22 +24,24 @@ public class TriggerScript : MonoBehaviour
     {
         isMouseOver = true;
         pickText.SetActive(true);
-        canPickUp = true; // Set canPickUp to true when mouse is over the object
     }
 
     private void OnMouseExit()
     {
         isMouseOver = false;
-        pickText.SetActive(false); 
-        canPickUp = false; // Reset canPickUp when mouse exits the object
+        pickText.SetActive(false);
     }
 
-    private void UpdateObjectCount()
+    private void PickUp()
     {
-        // Increment the count and update the text
-        objectCount++; // Increment the count
-        objectCount = Mathf.Clamp(objectCount, 0, 5); // Ensure the count stays between 0 and 5
+        // Perform pickup action
+        // For now, let's just deactivate the pickup object
+        gameObject.SetActive(false);
 
-        
+        // Update player's score or perform other actions
+
+
+        // Optionally, you can play a sound, show an animation, etc.
     }
 }
+
