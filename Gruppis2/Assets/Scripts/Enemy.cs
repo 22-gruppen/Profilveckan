@@ -12,7 +12,7 @@ public class Enemy: MonoBehaviour
 
     private GameObject player;
 
-    private float velocity = 2.5f, index, distance, radius = 20;
+    private float velocity = 3, index, distance, radius = 20;
 
     [Range(0, 360)]
     public float angle;
@@ -26,14 +26,16 @@ public class Enemy: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player1");
         StartCoroutine(FOVRoutine());
+        OnSceneGUI();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.LookAt(rotation);
+
 
         if (canSeePlayer == true)
             chasing = true;
