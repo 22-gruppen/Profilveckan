@@ -12,7 +12,7 @@ public class Enemy: MonoBehaviour
 
     private GameObject player;
 
-    private float velocity = 10, index, distance, radius = 20;
+    private float velocity = 2.5f, index, distance, radius = 20;
 
     [Range(0, 360)]
     public float angle;
