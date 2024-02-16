@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Drain stamina when running
-        bool isRunning = Input.GetKey(KeyCode.LeftShift) && canMove;
+        bool isRunning = Input.GetKey(KeyCode.LeftShift) && canMove && moving;
         float speed = isRunning && currentStamina > 0 ? runSpeed : walkSpeed;
 
         if (isRunning && currentStamina > 0)
