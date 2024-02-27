@@ -7,7 +7,8 @@ public class FakeTicket : MonoBehaviour
 
     private bool isMouseOver = false;
     private bool canPickUp = false;
-    public GameObject pickText; 
+    public GameObject pickText;
+    public GameObject Count; 
 
 
     private int objectCount = 0; // Variable to keep track of the object count

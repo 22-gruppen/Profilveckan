@@ -9144,6 +9144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
+  Count: {fileID: 0}
 --- !u!1 &539645844
 GameObject:
   m_ObjectHideFlags: 0
@@ -20501,6 +20502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
+  Count: {fileID: 0}
 --- !u!65 &843405536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70123,6 +70125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
+  Count: {fileID: 0}
 --- !u!1 &1220687971
 GameObject:
   m_ObjectHideFlags: 0
@@ -76427,6 +76430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
+  Count: {fileID: 0}
 --- !u!43 &1391062050
 Mesh:
   m_ObjectHideFlags: 0
@@ -77577,7 +77581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb9d24465aca61542812d89e522949c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.962
+      value: -0.976
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb9d24465aca61542812d89e522949c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77641,7 +77645,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fb9d24465aca61542812d89e522949c2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1470166815}
+      addedObject: {fileID: 1470166818}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fb9d24465aca61542812d89e522949c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470166814}
@@ -77669,8 +77673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
-  scoreValue: 10
---- !u!65 &1470166815
+--- !u!65 &1470166818
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77689,8 +77692,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.07591438, y: 0.017536592, z: 0.07572985}
-  m_Center: {x: -0.0019445419, y: 0.00869515, z: -0.0045702457}
+  m_Size: {x: 0.08607994, y: 0.013513754, z: 0.052928038}
+  m_Center: {x: -0.0021150634, y: 0.006683732, z: -0.0021468159}
 --- !u!1 &1470279436
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,7 @@ using UnityEngine;
 public class PickupScript : MonoBehaviour
 {
     public GameObject pickText;
-    public int scoreValue = 10;
-
+    
     private bool isMouseOver = false;
 
     private void Start()
@@ -37,11 +36,8 @@ public class PickupScript : MonoBehaviour
         // Perform pickup action
         // For now, let's just deactivate the pickup object
         gameObject.SetActive(false);
+        pickText.SetActive(false); 
 
-        // Update player's score or perform other actions
-
-
-        // Optionally, you can play a sound, show an animation, etc.
     }
 }
 
