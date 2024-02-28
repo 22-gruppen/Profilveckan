@@ -36,7 +36,6 @@ public class Enemy: MonoBehaviour
     {
         transform.LookAt(rotation);
 
-
         if (canSeePlayer == true)
             chasing = true;
 
