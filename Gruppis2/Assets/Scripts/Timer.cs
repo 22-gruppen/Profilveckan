@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -10,6 +11,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeText;
     public int timemin, timesec;
     string timeTypemin, timeTypesec;
+    private bool timesup = false;
 
     void Start()
     {
@@ -25,10 +27,20 @@ public class Timer : MonoBehaviour
 
         timeText.text = timeTypemin + ":" + timeTypesec;
 
-        if (timesec <= 0)
+
+        if (timesup == false)
         {
-            timesec = 59;
-            timemin -= 1;
+            if (timesec <= 0 && timemin > 0)
+            {
+                timesec = 59;
+                timemin -= 1;
+            }
+        }
+
+        if (timesec == 0 && timemin == 0)
+        {
+            timesup = true;
+            SceneManager.LoadScene("MainMenu");
         }
         
     }

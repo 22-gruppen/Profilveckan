@@ -38132,7 +38132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 900905392}
-  timemin: 9
+  timemin: 4
   timesec: 60
 --- !u!114 &1399086537
 MonoBehaviour:
