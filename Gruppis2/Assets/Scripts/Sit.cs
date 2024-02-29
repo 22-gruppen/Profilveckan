@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sit : MonoBehaviour
 {
     public GameObject stand, sit, intText, standText;
     public bool interactable, isSitting;
+    public GameObject pickup;
+    private PickupScript pick;
+    public bool sitting = false;
+
+    private void Start()
+    {
+        pick = pickup.GetComponent<PickupScript>();
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -36,6 +45,7 @@ public class Sit : MonoBehaviour
                 sit.SetActive(true);
                 stand.SetActive(false);
                 interactable = false;
+                sitting = true;
             }
         }
         if (sit == true)
@@ -46,6 +56,14 @@ public class Sit : MonoBehaviour
                 standText.SetActive(false);
                 stand.SetActive(true);
                 isSitting = false;
+                sitting = false;
+            }
+        }
+        if (sitting == true)
+        {
+            if (pick.hasTicket)
+            {
+                SceneManager.LoadScene("Station2");
             }
         }
     }

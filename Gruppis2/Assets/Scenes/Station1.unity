@@ -77813,6 +77813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickText: {fileID: 335572319}
+  hasTicket: 0
 --- !u!65 &1470166818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81031,6 +81032,7 @@ MonoBehaviour:
   standText: {fileID: 1946783402}
   interactable: 0
   isSitting: 0
+  pickup: {fileID: 1470166813}
 --- !u!65 &1555343132
 BoxCollider:
   m_ObjectHideFlags: 0

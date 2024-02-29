@@ -6,6 +6,8 @@ public class PickupScript : MonoBehaviour
     
     private bool isMouseOver = false;
 
+    public bool hasTicket = false;
+
     private void Start()
     {
         pickText.SetActive(false);
@@ -36,8 +38,8 @@ public class PickupScript : MonoBehaviour
         // Perform pickup action
         // For now, let's just deactivate the pickup object
         gameObject.SetActive(false);
-        pickText.SetActive(false); 
-
+        pickText.SetActive(false);
+        hasTicket = true;
     }
 }
 
