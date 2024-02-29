@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -171,7 +172,11 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Rigidbody>().velocity = trainVelocity;
         }
         if (other.gameObject.tag == "Enemy")
+        {
             Debug.Log("hit");
+            SceneManager.LoadScene("MainMenu");
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
