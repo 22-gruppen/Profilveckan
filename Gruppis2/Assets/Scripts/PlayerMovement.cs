@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -137,6 +138,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (moving == false && walk.isPlaying == true)
             walk.Stop();
+
+
+
     }
 
 
@@ -166,9 +170,11 @@ public class PlayerMovement : MonoBehaviour
             var trainVelocity = other.GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = trainVelocity;
         }
+        if (other.gameObject.tag == "Enemy")
+            Debug.Log("hit");
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Train")
         {
