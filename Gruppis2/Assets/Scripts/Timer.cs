@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timeText; // En variabel för att hitta texten i spelet.
+    public TextMeshProUGUI timeText, findtickettext; // En variabel för att hitta texten i spelet.
     public int timemin, timesec;
     string timeTypemin, timeTypesec;
     private bool timesup = false;
@@ -16,7 +16,8 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timesup = false;
-        StartCoroutine(timer()); // Startar cooldown metoden.
+        StartCoroutine(timer()); // Startar cooldown metoden för tid.
+        StartCoroutine(texttimer()); // Startar cooldown metoden för text.
     }
 
     // Update is called once per frame
@@ -50,11 +51,22 @@ public class Timer : MonoBehaviour
     {
         WaitForSeconds waitsec = new WaitForSeconds(1.0f);
 
+        
+
         while (timesec >= 0)
         {
             yield return waitsec;
             timesec -= 1; //minskar sekund variabeln med ett varje sekund.
         }
+
+    }
+
+    private IEnumerator texttimer() // Cooldown metod för text.
+    {
+        WaitForSeconds textwait = new WaitForSeconds(5.0f);
+
+        yield return textwait;
+        findtickettext.text = " "; //Text som hintar vad du ska göra försvinner efter 10 sekunder
     }
 
 }

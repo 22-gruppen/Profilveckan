@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PickupScript : MonoBehaviour
@@ -7,6 +8,8 @@ public class PickupScript : MonoBehaviour
     private bool isMouseOver = false;
 
     public bool hasTicket = false;
+
+    public TextMeshProUGUI foundtickettext;
 
     private void Start()
     {
@@ -18,6 +21,11 @@ public class PickupScript : MonoBehaviour
         if (isMouseOver && Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
+        }
+
+        if (hasTicket == true)
+        {
+            foundtickettext.text = "Looks like I found the right ticket. I need to go sit down in the train!";
         }
     }
 
