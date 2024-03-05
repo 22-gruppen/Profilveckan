@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Sit : MonoBehaviour
 {
+    // Variabler
     public GameObject stand, sit, intText, standText;
     public bool interactable, isSitting;
     public GameObject pickup;
     private PickupScript pick;
     public bool sitting = false;
+    private int nästaScene;
 
+    // Start metod
     private void Start()
     {
         pick = pickup.GetComponent<PickupScript>();
+        nästaScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
+    // Interactable blir sant om man tittar på sättenas hitbox (hitboxen för att sätta sig är sträckt över hela tågets golv)
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("MainCamera"))
@@ -24,6 +29,8 @@ public class Sit : MonoBehaviour
             interactable = true;
         }
     }
+
+    // Interactable blir falskt om man slutar titta på sättenas hitbox
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("MainCamera"))
@@ -36,6 +43,7 @@ public class Sit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Man kan sätta sig ner om interactable är sant
         if (interactable == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -48,6 +56,8 @@ public class Sit : MonoBehaviour
                 sitting = true;
             }
         }
+
+        // Gör så att man kan ställa sig upp om man sitter ner
         if (sit == true)
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -59,11 +69,13 @@ public class Sit : MonoBehaviour
                 sitting = false;
             }
         }
+
+        // Åker vidare om man har biljet
         if (sitting == true)
         {
             if (pick.hasTicket)
             {
-                SceneManager.LoadScene("Station2");
+                SceneManager.LoadScene(nästaScene);
             }
         }
     }
