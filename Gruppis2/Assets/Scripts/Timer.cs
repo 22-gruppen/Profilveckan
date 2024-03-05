@@ -8,36 +8,37 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI timeText; // En variabel för att hitta texten i spelet.
     public int timemin, timesec;
     string timeTypemin, timeTypesec;
     private bool timesup = false;
 
     void Start()
     {
-        StartCoroutine(timer());
+        timesup = false;
+        StartCoroutine(timer()); // Startar cooldown metoden.
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeTypesec = timesec.ToString();
+        timeTypesec = timesec.ToString(); // Gör om sekund variabeln till en string
 
-        timeTypemin = timemin.ToString();
+        timeTypemin = timemin.ToString(); // Gör om minut variabeln till en string
 
-        timeText.text = timeTypemin + ":" + timeTypesec;
+        timeText.text = timeTypemin + ":" + timeTypesec; // Skriver ut minuter och sekunder i spelet. 
 
 
         if (timesup == false)
         {
-            if (timesec <= 0 && timemin > 0)
+            if (timesec <= 0 && timemin > 0) // Efter sekunder har nått noll så subtraheras minuter med ett Sålänge inte minuter är noll.
             {
                 timesec = 59;
                 timemin -= 1;
             }
         }
 
-        if (timesec == 0 && timemin == 0)
+        if (timesec == 0 && timemin == 0) // Om timern når noll sätts times up till true och man åker tillbaka till main menu.
         {
             timesup = true;
             SceneManager.LoadScene("MainMenu");
@@ -45,14 +46,14 @@ public class Timer : MonoBehaviour
         
     }
 
-    private IEnumerator timer()
+    private IEnumerator timer() //Cooldown metod
     {
         WaitForSeconds waitsec = new WaitForSeconds(1.0f);
 
         while (timesec >= 0)
         {
             yield return waitsec;
-            timesec -= 1;
+            timesec -= 1; //minskar sekund variabeln med ett varje sekund.
         }
     }
 
