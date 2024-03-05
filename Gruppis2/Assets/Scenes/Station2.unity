@@ -14970,6 +14970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f69376c44f33449be2f05511b3e87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "t\xE5gk\xF6r": {fileID: 587591419}
   "d\xF6rrar":
   - {fileID: 329663234}
   - {fileID: 329663233}

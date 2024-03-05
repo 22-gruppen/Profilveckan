@@ -20632,6 +20632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f69376c44f33449be2f05511b3e87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "t\xE5gk\xF6r": {fileID: 843823800}
   "d\xF6rrar":
   - {fileID: 1011329616}
   - {fileID: 1404451969}
@@ -20657,7 +20658,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a8d63d63802dfcc4998f76c046fbbc45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

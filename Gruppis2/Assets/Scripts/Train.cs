@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Train : MonoBehaviour
 {
-    // public AudioSource tågkör;
+    public AudioSource tågkör;
 
     public List<GameObject> dörrar;
 
@@ -24,10 +24,10 @@ public class Train : MonoBehaviour
         if (moving == true)
         {
 
-         /*   if (tågkör.isPlaying == false)
+            if (tågkör.isPlaying == false)
             {
                 tågkör.Play();
-            } */
+            } 
 
             nextpos = Vector3.MoveTowards(transform.position, new Vector3(0f, -0.1f, transform.position.z), velocity * Time.deltaTime);
 
@@ -44,7 +44,7 @@ public class Train : MonoBehaviour
         
         if (moving == false)
         {
-            //tågkör.Stop();
+            tågkör.Stop();
             dörrar[0].transform.position = Vector3.MoveTowards(dörrar[0].transform.position, new Vector3(2.1f, dörrar[0].transform.position.y, dörrar[0].transform.position.z), 0.1f * Time.deltaTime);
             dörrar[1].transform.position = Vector3.MoveTowards(dörrar[1].transform.position, new Vector3(1.15f, dörrar[1].transform.position.y, dörrar[1].transform.position.z), 0.1f * Time.deltaTime);
             dörrar[2].transform.position = Vector3.MoveTowards(dörrar[2].transform.position, new Vector3(-1.7025f, dörrar[2].transform.position.y, dörrar[2].transform.position.z), 0.1f * Time.deltaTime);
