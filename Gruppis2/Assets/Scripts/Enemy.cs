@@ -29,7 +29,7 @@ public class Enemy: MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player1"); // Sätter player variabeln till ett gameobject med taggen "Player1"
         StartCoroutine(FOVRoutine()); //Startar cooldown metoden.
-        OnSceneGUI();
+        // OnSceneGUI();
     }
 
     // Update is called once per frame
@@ -134,12 +134,12 @@ public class Enemy: MonoBehaviour
 
     }
 
-    private void OnSceneGUI() // En metod som skulle rita ut fältet som enemyn kunde se. Funkade inte i slutändan.
+   /* private void OnSceneGUI() // En metod som skulle rita ut fältet som enemyn kunde se. Funkade inte i slutändan.
     {
         if (editing == true)
         {
             Handles.color = Color.white;
             Handles.DrawWireArc(transform.position, Vector3.up, Vector3.forward, 360, radius);
         }
-    }
+    } */
 }
