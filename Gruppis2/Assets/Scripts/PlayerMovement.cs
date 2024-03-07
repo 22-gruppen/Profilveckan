@@ -17,14 +17,14 @@ public class PlayerMovement : MonoBehaviour
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
 
-    public float maxStamina = 100f; // Maximum stamina
-    public float currentStamina; // Current stamina
-    public float staminaRegenRate = 5f; // Stamina regeneration rate per second
-    public float staminaDepletionRate = 30f;
-    public Slider barImage;
+    public float maxStamina = 100f; // Max stamina
+    public float currentStamina; // Nuvarande stamina
+    public float staminaRegenRate = 5f; // Hur snabbt den ska gå upp. 
+    public float staminaDepletionRate = 30f; // hur snabbt den går ner. 
+    public Slider staminaImage; // stamina baren
 
 
-    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 moveDirection = Vector3.zero; // kollar vilket håll den ska röra sig mot. 
     private float rotationX = 0;
     private CharacterController characterController;
 
@@ -38,11 +38,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        currentStamina = maxStamina; // Initialize stamina to its maximum value
+        Cursor.lockState = CursorLockMode.Locked; // låser muspekaren. 
+        Cursor.visible = false; // gömmer muspekaren. 
+        currentStamina = maxStamina; // i början så är nuvarenda stamina och max stamina likadant. 
 
-        // Start the coroutine for delayed stamina regeneration
+        // startar nedräkningen för att kunna öka staminan
         StartCoroutine(DelayedStaminaRegen());
     }
 
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Drain stamina when running
+        //  NÄR SPRINGER SÅ FÖRSVINNER STAMINA
         bool isRunning = Input.GetKey(KeyCode.LeftShift) && canMove && moving;
         float speed = isRunning && currentStamina > 0 ? runSpeed : walkSpeed;
 
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (currentStamina < maxStamina)
         {
-            // No stamina regeneration while running
+            // ÖKAR INTE OM DU SPRINGER. 
             if (!isRunning)
             {
                 currentStamina += staminaRegenRate * Time.deltaTime;
@@ -72,18 +72,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentStamina == 0)
         {
-            // If stamina is zero, revert to walk speed
+            // OM DU HAR 0 STAMINA SÅ BLIR DE WALK SPEED. 
             speed = walkSpeed;
         }
 
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
-
+        // RÖRELSE
         float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
+        // HOPP
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpPower;
@@ -98,19 +98,12 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.R) && canMove)
-        {
-            characterController.height = crouchHeight;
-            speed = crouchSpeed;
-        }
-        else
-        {
-            characterController.height = defaultHeight;
-        }
+        
+        
 
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (canMove)
+        if (canMove) // om du kan röra dig så ger den en gräns på hur långt ner och upp du kan titta. 
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
@@ -118,10 +111,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
 
-        // Update stamina UI
-        if (barImage != null)
+        // Updaterar stamina bilden så den rör på sig när man springer. 
+        if (staminaImage != null)
         {
-            barImage.value = currentStamina / maxStamina;
+            staminaImage.value = currentStamina / maxStamina;
         }
 
         if (curSpeedX > 0 && curSpeedY <= 0)
@@ -130,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         else if (curSpeedX <= 0 && curSpeedY <= 0)
             moving = false;
 
-        if (moving == true)
+        if (moving == true) // om man rör sig så spelar ett walk ljud om slutar gå så slutar ljudet
         {
             if (walk.isPlaying == false)
             {
@@ -148,12 +141,10 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-    // Coroutine for delayed stamina regeneration
     IEnumerator DelayedStaminaRegen()
     {
-        yield return new WaitForSeconds(5f);
-        while (currentStamina < maxStamina)
+        yield return new WaitForSeconds(5f); // väntar 5 sekunder innan den ökar staminan. 
+        while (currentStamina < maxStamina) // om max stamina är större än nuvarande stamina så börjar den gå upp, 
         {
             currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);

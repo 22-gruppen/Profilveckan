@@ -11,7 +11,7 @@ public class FakeTicket : MonoBehaviour
     public GameObject FakeText;
 
 
-    private void Start()
+    private void Start() // gör all text osynlig direkt
     {
         pickText.SetActive(false);
         FakeText.SetActive(false); 
@@ -20,7 +20,7 @@ public class FakeTicket : MonoBehaviour
     private void OnGUI()
     {
      
-        if (isMouseOver && canPickUp && Input.GetKeyDown(KeyCode.E))
+        if (isMouseOver && canPickUp && Input.GetKeyDown(KeyCode.E))  // om jag trycker E på en falskt biljett såå visas det en text att det är en fake ticket. 
         {
             pickText.SetActive(false);
             FakeText.SetActive(true);
@@ -33,20 +33,20 @@ public class FakeTicket : MonoBehaviour
        
     }
 
-    private void OnMouseEnter()
+    private void OnMouseEnter() // om musen går över objectet så sätts dessa till true aka dem syns. 
     {
         isMouseOver = true;
         pickText.SetActive(true); 
         
-        canPickUp = true; // Set canPickUp to true when mouse is over the object
+        canPickUp = true; 
     }
 
-    private void OnMouseExit()
+    private void OnMouseExit() // när musen går bort från objektet så frösvinner allt nedanför. 
     {
         isMouseOver = false;
         pickText.SetActive(false);
         FakeText.SetActive(false);
-        canPickUp = false; // Reset canPickUp when mouse exits the object
+        canPickUp = false; 
     }
 
     
